@@ -17,11 +17,13 @@ $webfont-icons: map-merge($webfont-icons, (
 	line-height: 1;
 
 	$icon: map-get($webfont-icons, $name);
-	&:before {
-		font-family: nth($icon, 1) !important;
-		font-style: normal;
-		font-weight: normal !important;
-		vertical-align: top;
-		content: unquote("\"\\#{nth($icon, 2)}\"");
-	}
+  @if length($icon) >= 2 {
+		&:before {
+			font-family: nth($icon, 1) !important;
+			font-style: normal;
+			font-weight: normal !important;
+			vertical-align: top;
+			content: "#{nth($icon, 2)}";
+		}
+  }
 }
