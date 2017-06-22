@@ -18,7 +18,12 @@ $webfont-icons: map-merge($webfont-icons, (
 
 	$icon: map-get($webfont-icons, $name);
   @if length($icon) >= 2 {
-		&:before {
+    $selector: '::before';
+		@if $after {
+			$selector: '::after'
+		}
+		
+		&#{$selector} {
 			font-family: nth($icon, 1) !important;
 			font-style: normal;
 			font-weight: normal !important;
