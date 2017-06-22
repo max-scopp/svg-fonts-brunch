@@ -13,7 +13,7 @@ $webfont-icons: map-merge($webfont-icons, (
 	{{/each}}
 ));
 
-@mixin webfont-icon($name) {
+@mixin webfont-icon($name, $after: false) {
 	line-height: 1;
 
 	$icon: map-get($webfont-icons, $name);
